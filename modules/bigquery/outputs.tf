@@ -29,6 +29,11 @@ output "resource_name" {
   value       = local.dataset_name
 }
 
+output "dataset_id" {
+  description = "The dataset id"
+  value       = google_bigquery_dataset.dataset.dataset_id
+}
+
 output "resource_id" {
   description = "The resource id for the destination bigquery dataset"
   value       = google_bigquery_dataset.dataset.id
