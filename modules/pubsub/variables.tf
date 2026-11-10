@@ -32,6 +32,12 @@ variable "subscription_labels" {
   description = "A set of key/value label pairs to assign to the pubsub subscription or pubsub push subscription."
 }
 
+variable "subscription_expiration_ttl" {
+  description = "Pubsub pull subscription expiration policy ttl. Set to \"\" for the subscription to never expire."
+  type        = string
+  default     = null
+}
+
 variable "push_subscription_expiration_ttl" {
   description = "Pubsub push subscription expiration policy ttl."
   type        = string
