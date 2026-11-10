@@ -97,6 +97,13 @@ resource "google_pubsub_subscription" "pubsub_subscription" {
   project = var.project_id
   topic   = local.topic_name
   labels  = var.subscription_labels
+
+  dynamic "expiration_policy" {
+    for_each = var.subscription_expiration_ttl == null ? [] : [1]
+    content {
+      ttl = var.subscription_expiration_ttl
+    }
+  }
 }
 
 resource "google_pubsub_subscription" "pubsub_push_subscription" {
